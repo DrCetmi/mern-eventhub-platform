@@ -1,1 +1,1 @@
-# mern-eventhub-platform
+# Eventim-Clone
