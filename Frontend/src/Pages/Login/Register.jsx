@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import logo from "../../assets/img/logo-transparent-png.png";
+import logo from "../../assets/img/eventhub-logo.png";
 import registrieren from "../../assets/img/registrieren.jpg";
 import { useNavigate } from "react-router-dom";
 
@@ -54,11 +54,11 @@ export function SignUp() {
   };
 
   return (
-    <section className="m-8 flex flex-col items-center">
+    <section className="m-2 flex flex-col items-center">
       <ToastContainer />
-      <div className="text-center mb-8">
+      <div className="text-center mb-2">
         <Link to={"/"}>
-          <img src={logo} alt="logo" className="h-64 mx-auto" />
+          <img src={logo} alt="logo" className="h-52 mx-auto" />
         </Link>
         <Typography variant="h2" className="font-bold mb-4">
           Registrieren

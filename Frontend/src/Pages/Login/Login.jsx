@@ -4,7 +4,7 @@ import { Input, Button, Typography } from "@material-tailwind/react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import logo from "../../assets/img/logo-transparent-png.png";
+import logo from "../../assets/img/eventhub-logo.png";
 import login from "../../assets/img/login.jpg";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
@@ -42,7 +42,7 @@ export function Login() {
 
         setTimeout(() => {
           if (res.data.role === "admin") {
-            navigate("/");
+            navigate("/admin");
           } else {
             navigate("/customer-dashboard");
           }
@@ -55,11 +55,11 @@ export function Login() {
   };
 
   return (
-    <section className="m-8 flex flex-col items-center">
+    <section className="m-2 flex flex-col items-center">
       <ToastContainer />
-      <div className="text-center mb-8">
+      <div className="text-center mb-2">
         <Link to={"/"}>
-          <img src={logo} alt="logo" className="h-64 mx-auto" />
+          <img src={logo} alt="logo" className="h-52 mx-auto" />
         </Link>
         <Typography variant="h2" className="font-bold mb-4">
           Login

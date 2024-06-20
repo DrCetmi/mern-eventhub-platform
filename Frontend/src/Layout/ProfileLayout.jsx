@@ -18,16 +18,16 @@ import {
   HomeIcon,
 } from "@heroicons/react/24/solid";
 import { useAuthContext } from "../hooks/useAuthContext";
-import logo from "../assets/img/logo-transparent-png.png";
+import logo from "../assets/img/eventhub-logo.png";
 
 const profileMenuItems = [
   {
     label: "Home",
     icon: HomeIcon,
-    to: "/customer-dashboard",
+    to: "/",
   },
   {
-    label: "My Profile",
+    label: "My Tickets",
     icon: UserCircleIcon,
     to: "/customer-dashboard?tab=app",
   },
