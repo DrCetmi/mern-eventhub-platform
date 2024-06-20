@@ -29,7 +29,7 @@ const Inbox = () => {
   const handleDelete = async (idToDelete) => {
     try {
       await axios.delete(
-        `https://mern-eventhub-platform.onrender.com/dashboard/contact/${idToDelete}`
+        `https://mern-eventhub-platform.onrender.com/contact/${idToDelete}`
       );
       setTableRows((prevRows) =>
         prevRows.filter((row) => row._id !== idToDelete)

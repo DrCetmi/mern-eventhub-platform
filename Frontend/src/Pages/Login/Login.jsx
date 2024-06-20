@@ -45,11 +45,9 @@ export function Login() {
 
         setTimeout(() => {
           if (res.data.role === "admin") {
-            navigate("https://mern-eventhub-platform.onrender.com/admin");
+            navigate("/admin");
           } else {
-            navigate(
-              "https://mern-eventhub-platform.onrender.com/customer-dashboard"
-            );
+            navigate("/customer-dashboard");
           }
         }, 2000); // Redirect after 2 seconds
       })

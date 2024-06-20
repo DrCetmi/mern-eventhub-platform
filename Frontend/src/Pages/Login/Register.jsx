@@ -48,7 +48,7 @@ export function SignUp() {
       .then(() => {
         toast.success("Registration successful!");
         setTimeout(() => {
-          navigate("https://mern-eventhub-platform.onrender.com/login");
+          navigate("/login");
         }, 2000); // Redirect after 2 seconds
       })
       .catch((err) => {
@@ -163,10 +163,7 @@ export function SignUp() {
             className="text-center text-blue-gray-500 font-medium mt-4"
           >
             Sie haben bereits ein Konto?
-            <Link
-              to="https://mern-eventhub-platform.onrender.com/login"
-              className="text-gray-900 ml-1"
-            >
+            <Link to="/login" className="text-gray-900 ml-1">
               Sign in
             </Link>
           </Typography>

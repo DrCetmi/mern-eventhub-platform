@@ -24,28 +24,28 @@ const profileMenuItems = [
   {
     label: "Home",
     icon: HomeIcon,
-    to: "https://mern-eventhub-platform.onrender.com/",
+    to: "/",
   },
   {
     label: "My Tickets",
     icon: UserCircleIcon,
-    to: "https://mern-eventhub-platform.onrender.com/customer-dashboard?tab=app",
+    to: "/customer-dashboard?tab=app",
   },
   {
     label: "Edit Profile",
     icon: UserCircleIcon,
-    to: "https://mern-eventhub-platform.onrender.com/customer-dashboard?tab=settings",
+    to: "/customer-dashboard?tab=settings",
   },
   {
     label: "Inbox",
     icon: InboxArrowDownIcon,
-    to: "https://mern-eventhub-platform.onrender.com/customer-dashboard?tab=message",
+    to: "/customer-dashboard?tab=message",
   },
   {
     label: "Sign Out",
     icon: PowerIcon,
     action: "logout",
-    to: "https://mern-eventhub-platform.onrender.com/login",
+    to: "/login",
   },
 ];
 

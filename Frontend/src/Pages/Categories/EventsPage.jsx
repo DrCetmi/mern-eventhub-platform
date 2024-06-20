@@ -47,7 +47,10 @@ const EventsPage = () => {
     if (ticket && ticket.menge >= ticketQuantity) {
       ticket.menge -= ticketQuantity;
       axios
-        .put(`http://localhost:4000/dashboard/event/${event._id}`, event)
+        .put(
+          `https://mern-eventhub-platform.onrender.com/dashboard/event/${event._id}`,
+          event
+        )
         .then((response) => {
           setEvents(
             events.map((e) => (e._id === event._id ? response.data : e))
