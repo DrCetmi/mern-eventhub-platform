@@ -44,7 +44,7 @@ export function TicketTable() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/dashboard/Tickets")
+      .get("https://mern-eventhub-platform.onrender.com/dashboard/Tickets")
       .then((res) => {
         setUsers(res.data);
       })
@@ -64,7 +64,7 @@ export function TicketTable() {
           <div className="mb-8 flex items-center justify-between gap-8">
             <div>
               <Typography variant="h5" color="blue-gray">
-              Tickets Management
+                Tickets Management
               </Typography>
               <Typography color="gray" className="mt-1 font-normal">
                 See information about all Tickets

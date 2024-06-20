@@ -33,7 +33,10 @@ export function Login() {
     }
 
     axios
-      .post("http://localhost:4000/auth/login", credentials)
+      .post(
+        "https://mern-eventhub-platform.onrender.com/auth/login",
+        credentials
+      )
       .then((res) => {
         toast.success("Login successful!");
         localStorage.setItem("token", res.data.token);
@@ -42,9 +45,11 @@ export function Login() {
 
         setTimeout(() => {
           if (res.data.role === "admin") {
-            navigate("/admin");
+            navigate("https://mern-eventhub-platform.onrender.com/admin");
           } else {
-            navigate("/customer-dashboard");
+            navigate(
+              "https://mern-eventhub-platform.onrender.com/customer-dashboard"
+            );
           }
         }, 2000); // Redirect after 2 seconds
       })

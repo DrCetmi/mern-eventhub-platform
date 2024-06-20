@@ -32,12 +32,12 @@ export default function Sidebar() {
   return (
     <div className="fixed top-0 left-0 h-full w-64 p-4 shadow-xl shadow-blue-gray-900/5 bg-gray-300">
       <div className="mb-2 p-4">
-        <Link to="/">
+        <Link to="https://mern-eventhub-platform.onrender.com/">
           <img src={logo} alt="logo" />
         </Link>
       </div>
       <List>
-        <Link to="/admin">
+        <Link to="https://mern-eventhub-platform.onrender.com/admin">
           <ListItem selected={location.pathname === "/admin"}>
             <ListItemPrefix>
               <PresentationChartBarIcon className="h-5 w-5" />
@@ -45,7 +45,7 @@ export default function Sidebar() {
             Dashboard
           </ListItem>
         </Link>
-        <Link to="/admin/users">
+        <Link to="https://mern-eventhub-platform.onrender.com/admin/users">
           <ListItem selected={location.pathname === "/admin/users"}>
             <ListItemPrefix>
               <FaUsers className="h-5 w-5" />
@@ -53,7 +53,7 @@ export default function Sidebar() {
             Users
           </ListItem>
         </Link>
-        <Link to="/admin/events">
+        <Link to="https://mern-eventhub-platform.onrender.com/admin/events">
           <ListItem selected={location.pathname === "/admin/events"}>
             <ListItemPrefix>
               <FaCalendarAlt className="h-5 w-5" />
@@ -61,7 +61,7 @@ export default function Sidebar() {
             Events
           </ListItem>
         </Link>
-        <Link to="/admin/tickets">
+        <Link to="https://mern-eventhub-platform.onrender.com/admin/tickets">
           <ListItem selected={location.pathname === "/admin/tickets"}>
             <ListItemPrefix>
               <FaTicketAlt className="h-5 w-5" />
@@ -69,7 +69,7 @@ export default function Sidebar() {
             Tickets
           </ListItem>
         </Link>
-        <Link to="/admin/inbox">
+        <Link to="https://mern-eventhub-platform.onrender.com/admin/inbox">
           <ListItem selected={location.pathname === "/admin/inbox"}>
             <ListItemPrefix>
               <InboxIcon className="h-5 w-5" />
@@ -86,7 +86,7 @@ export default function Sidebar() {
             </ListItemSuffix>
           </ListItem>
         </Link>
-        <Link to="/admin/profile">
+        <Link to="https://mern-eventhub-platform.onrender.com/admin/profile">
           <ListItem selected={location.pathname === "/admin/profile"}>
             <ListItemPrefix>
               <UserCircleIcon className="h-5 w-5" />

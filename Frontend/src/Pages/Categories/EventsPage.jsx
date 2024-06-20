@@ -19,7 +19,7 @@ const EventsPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/dashboard/event")
+      .get("https://mern-eventhub-platform.onrender.com/dashboard/event")
       .then((response) => {
         setEvents(response.data);
       })

@@ -9,7 +9,9 @@ const EventDetails = () => {
   useEffect(() => {
     if (id) {
       axios
-        .get(`http://localhost:4000/dashboard/event/${id}`)
+        .get(
+          `https://mern-eventhub-platform.onrender.com/dashboard/event/${id}`
+        )
         .then((response) => {
           setEvent(response.data);
         })

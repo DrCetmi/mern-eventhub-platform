@@ -8,7 +8,7 @@ export default function CarouselWithEvents() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/dashboard/event")
+      .get("https://mern-eventhub-platform.onrender.com/dashboard/event")
       .then((response) => {
         const allEvents = response.data;
         const randomEvents = sampleSize(allEvents, 7);

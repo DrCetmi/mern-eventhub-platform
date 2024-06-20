@@ -16,7 +16,7 @@ function AdminLayout() {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
       dispatch({ type: "LOGOUT" });
-      navigate("/login");
+      navigate("https://mern-eventhub-platform.onrender.com/login");
     } else {
       dispatch({ type: "LOGIN", payload: user });
     }

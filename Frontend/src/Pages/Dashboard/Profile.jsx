@@ -44,7 +44,7 @@ export function Profile() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/dashboard/contact")
+      .get("https://mern-eventhub-platform.onrender.com/dashboard/contact")
       .then((res) => {
         setTableRows(res.data.reverse());
       })
@@ -58,7 +58,7 @@ export function Profile() {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/dashboard/contact",
+        "https://mern-eventhub-platform.onrender.com/dashboard/contact",
         { email, subject, message },
         {
           headers: {
@@ -92,7 +92,7 @@ export function Profile() {
       console.log("Contact ID to delete:", contact._id);
 
       await axios.delete(
-        `http://localhost:4000/dashboard/contact/${contact._id}`
+        `https://mern-eventhub-platform.onrender.com/dashboard/contact/${contact._id}`
       );
 
       setTableRows((prevRows) =>

@@ -22,28 +22,28 @@ const profileMenuItems = [
   {
     label: "Home",
     icon: HomeIcon,
-    to: "/",
+    to: "https://mern-eventhub-platform.onrender.com/",
   },
   {
     label: "My Tickets",
     icon: UserCircleIcon,
-    to: "/admin/profile?tab=app",
+    to: "https://mern-eventhub-platform.onrender.com/admin/profile?tab=app",
   },
   {
     label: "Edit Profile",
     icon: UserCircleIcon,
-    to: "/admin/profile?tab=settings",
+    to: "https://mern-eventhub-platform.onrender.com/admin/profile?tab=settings",
   },
   {
     label: "Inbox",
     icon: InboxArrowDownIcon,
-    to: "/admin/profile?tab=message",
+    to: "https://mern-eventhub-platform.onrender.com/admin/profile?tab=message",
   },
   {
     label: "Sign Out",
     icon: PowerIcon,
     action: "logout",
-    to: "/login",
+    to: "https://mern-eventhub-platform.onrender.com/login",
   },
 ];
 
@@ -134,7 +134,8 @@ export default function Topbar() {
             variant="h6"
             className="font-medium text-blue-gray-900"
           >
-            {location.pathname === "/admin"
+            {location.pathname ===
+            "https://mern-eventhub-platform.onrender.com/admin"
               ? "Dashboard"
               : location.pathname.slice(1).charAt(0).toUpperCase() +
                 location.pathname.slice(2)}

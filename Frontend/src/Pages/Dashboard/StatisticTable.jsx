@@ -50,7 +50,7 @@ const Statistics = () => {
     const fetchData = async () => {
       try {
         const usersResponse = await axios.get(
-          "http://localhost:4000/dashboard/users"
+          "https://mern-eventhub-platform.onrender.com/dashboard/users"
         );
         const usersCount = usersResponse.data.length + 900;
 

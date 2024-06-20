@@ -52,7 +52,7 @@ const EventsTableList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/dashboard/event")
+      .get("https://mern-eventhub-platform.onrender.com/dashboard/event")
       .then((res) => {
         setEvents(res.data);
       })
@@ -63,7 +63,9 @@ const EventsTableList = () => {
 
   const handleDelete = (eventId) => {
     axios
-      .delete(`http://localhost:4000/dashboard/event/${eventId}`)
+      .delete(
+        `https://mern-eventhub-platform.onrender.com/dashboard/event/${eventId}`
+      )
       .then(() => {
         setEvents(events.filter((event) => event._id !== eventId));
         toast.success("Event deleted successfully");
@@ -82,7 +84,7 @@ const EventsTableList = () => {
   const handleSave = () => {
     axios
       .put(
-        `http://localhost:4000/dashboard/event/${editEventId}`,
+        `https://mern-eventhub-platform.onrender.com/dashboard/event/${editEventId}`,
         editEventData
       )
       .then((res) => {
@@ -149,7 +151,10 @@ const EventsTableList = () => {
 
   const handleAddEvent = () => {
     axios
-      .post("http://localhost:4000/dashboard/event", newEvent)
+      .post(
+        "https://mern-eventhub-platform.onrender.com/dashboard/event",
+        newEvent
+      )
       .then((res) => {
         setEvents([...events, res.data]);
         setNewEvent({

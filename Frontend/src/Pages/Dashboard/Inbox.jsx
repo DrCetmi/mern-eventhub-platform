@@ -17,7 +17,7 @@ const Inbox = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/dashboard/contact")
+      .get("https://mern-eventhub-platform.onrender.com/dashboard/contact")
       .then((res) => {
         setTableRows(res.data.reverse());
       })
@@ -29,7 +29,7 @@ const Inbox = () => {
   const handleDelete = async (idToDelete) => {
     try {
       await axios.delete(
-        `http://localhost:4000/dashboard/contact/${idToDelete}`
+        `https://mern-eventhub-platform.onrender.com/dashboard/contact/${idToDelete}`
       );
       setTableRows((prevRows) =>
         prevRows.filter((row) => row._id !== idToDelete)

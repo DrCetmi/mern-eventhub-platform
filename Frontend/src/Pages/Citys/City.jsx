@@ -32,7 +32,7 @@ const City = () => {
   useEffect(() => {
     if (city) {
       axios
-        .get("http://localhost:4000/dashboard/event")
+        .get("https://mern-eventhub-platform.onrender.com/dashboard/event")
         .then((response) => {
           const cityEvents = response.data.filter(
             (event) => event.ort.stadt.toLowerCase() === city.toLowerCase()

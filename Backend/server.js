@@ -8,7 +8,7 @@ const authRoutes = require("./Routers/authRoutes");
 const contactRoutes = require("./Routers/contactRoutes");
 
 const app = express();
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "https://mern-eventhub-platform.onrender.com" }));
 
 app.use(express.json());
 

@@ -21,17 +21,38 @@ import EventDetails from "./Pages/Categories/EventDetails";
 function App() {
   return (
     <Routes>
-      <Route path="/sign-up" element={<SignUp />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/" element={<HomeLayout />}>
+      <Route
+        path="https://mern-eventhub-platform.onrender.com/sign-up"
+        element={<SignUp />}
+      />
+      <Route
+        path="https://mern-eventhub-platform.onrender.com/login"
+        element={<Login />}
+      />
+      <Route
+        path="https://mern-eventhub-platform.onrender.com/"
+        element={<HomeLayout />}
+      >
         <Route index element={<HomePage />} />
-        <Route path="/categories" element={<EventsPage />} />
-        <Route path="/events/:id" element={<EventDetails />} />
-        <Route path="/cities/:city?" element={<City />} />
-        <Route path="/allcities" element={<AllCities />} />
+        <Route
+          path="https://mern-eventhub-platform.onrender.com/categories"
+          element={<EventsPage />}
+        />
+        <Route
+          path="https://mern-eventhub-platform.onrender.com/events/:id"
+          element={<EventDetails />}
+        />
+        <Route
+          path="https://mern-eventhub-platform.onrender.com/cities/:city?"
+          element={<City />}
+        />
+        <Route
+          path="https://mern-eventhub-platform.onrender.com/allcities"
+          element={<AllCities />}
+        />
       </Route>
       <Route
-        path="/customer-dashboard"
+        path="https://mern-eventhub-platform.onrender.com/customer-dashboard"
         element={
           <PrivateRoute>
             <ProfileLayout />
@@ -41,19 +62,37 @@ function App() {
         <Route index element={<Profile />} />
       </Route>
       <Route
-        path="/admin"
+        path="https://mern-eventhub-platform.onrender.com/admin"
         element={
           <AdminRoute>
             <AdminLayout />
           </AdminRoute>
         }
       >
-        <Route path="/admin" element={<Statistics />} />
-        <Route path="/admin/users" element={<UsersTable />} />
-        <Route path="/admin/tickets" element={<TicketTable />} />
-        <Route path="/admin/events" element={<EventsTableList />} />
-        <Route path="/admin/inbox" element={<Inbox />} />
-        <Route path="/admin/profile" element={<Profile />} />
+        <Route
+          path="https://mern-eventhub-platform.onrender.com/admin"
+          element={<Statistics />}
+        />
+        <Route
+          path="https://mern-eventhub-platform.onrender.com/admin/users"
+          element={<UsersTable />}
+        />
+        <Route
+          path="https://mern-eventhub-platform.onrender.com/admin/tickets"
+          element={<TicketTable />}
+        />
+        <Route
+          path="https://mern-eventhub-platform.onrender.com/admin/events"
+          element={<EventsTableList />}
+        />
+        <Route
+          path="https://mern-eventhub-platform.onrender.com/admin/inbox"
+          element={<Inbox />}
+        />
+        <Route
+          path="https://mern-eventhub-platform.onrender.com/admin/profile"
+          element={<Profile />}
+        />
       </Route>
     </Routes>
   );
