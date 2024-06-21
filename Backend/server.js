@@ -8,10 +8,7 @@ const authRoutes = require("./Routers/authRoutes");
 const contactRoutes = require("./Routers/contactRoutes");
 
 const app = express();
-const corsOptions = {
-  origin: [process.env.FRONEND_URL, "http://localhost:5173"],
-  optionsSuccessStatus: 200,
-};
+app.use(cors());
 
 app.use(express.json());
 
