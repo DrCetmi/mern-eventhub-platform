@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useNavigate } from "react-router-dom";
+import api from "../../Axios";
 
 // Import Swiper styles
 import "swiper/css";
@@ -18,8 +18,8 @@ const SwiperMain = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get("https://mern-eventhub-platform.onrender.com/dashboard/event")
+    api
+      .get("/dashboard/event")
       .then((response) => {
         setEvents(response.data);
       })
