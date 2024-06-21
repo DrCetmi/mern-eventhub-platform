@@ -4,26 +4,34 @@ import AllCities from "../Citys/Allcities";
 import CarouselWithContent from "../../Components/Home/CarouselCities";
 import CarouselWithEvents from "../../Components/Home/CorouselEvents";
 import EventList from "../../Components/Home/EventList";
-import EventCardList from "../../Components/Home/EventCardList";
 import SwiperMain from "../../Components/Home/Swiper/Swiper";
+import PopupModal from "../../Components/Home/Popup";
 
 const HomePage = () => {
-  const [backgroundColor, setbackgroundColor] = useState("white");
+  const [backgroundColor, setBackgroundColor] = useState("white");
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     const savedColor = localStorage.getItem("backgroundColor");
     if (savedColor) {
-      setbackgroundColor(savedColor);
+      setBackgroundColor(savedColor);
     }
+    // Sayfa yüklendiğinde modal'ı göster
+    setOpenModal(true);
   }, []);
 
   const handleSetBackgroundColor = (color) => {
-    setbackgroundColor(color);
+    setBackgroundColor(color);
     localStorage.setItem("backgroundColor", color);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
   };
 
   return (
     <div style={{ backgroundColor: backgroundColor }}>
+      <PopupModal open={openModal} handleClose={handleCloseModal} />
       <Settings setBackgroundColor={handleSetBackgroundColor} />
       <div className="relative z-10">
         <SwiperMain />
@@ -32,7 +40,6 @@ const HomePage = () => {
           <AllCities />
         </div>
         <CarouselWithEvents />
-        {/* <EventCardList /> */}
         <EventList />
       </div>
     </div>
