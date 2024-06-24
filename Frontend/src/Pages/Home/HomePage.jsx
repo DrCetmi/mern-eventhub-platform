@@ -6,6 +6,11 @@ import CarouselWithEvents from "../../Components/Home/CorouselEvents";
 import EventList from "../../Components/Home/EventList";
 import SwiperMain from "../../Components/Home/Swiper/Swiper";
 import PopupModal from "../../Components/Home/Popup";
+import NewsLetter from "../../Components/Home/Newsletter";
+import MasonryGridGallery from "../../Components/Home/Galery";
+import ComedySwiper from "../../Components/Home/ComedySwiper";
+import KonzertSwiper from "../../Components/Home/KonzertSwiper";
+import AllCitiesCard from "../../Components/Home/AllCitiesCard";
 
 const HomePage = () => {
   const [backgroundColor, setBackgroundColor] = useState("white");
@@ -16,7 +21,7 @@ const HomePage = () => {
     if (savedColor) {
       setBackgroundColor(savedColor);
     }
-    // Sayfa yüklendiğinde modal'ı göster
+
     setOpenModal(true);
   }, []);
 
@@ -37,10 +42,17 @@ const HomePage = () => {
         <SwiperMain />
         <CarouselWithContent />
         <div className="container mx-auto">
-          <AllCities />
+          <AllCitiesCard />
+          <ComedySwiper />
+          <KonzertSwiper />
+          <CarouselWithEvents />
+          <ComedySwiper />
+          <KonzertSwiper />
+          <EventList />
+          <NewsLetter />
+
+          <MasonryGridGallery />
         </div>
-        <CarouselWithEvents />
-        <EventList />
       </div>
     </div>
   );
