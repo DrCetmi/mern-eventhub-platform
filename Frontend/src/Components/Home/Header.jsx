@@ -12,7 +12,6 @@ import {
   MenuList,
   MenuItem,
   Avatar,
-  Input,
 } from "@material-tailwind/react";
 import {
   ChevronDownIcon,
@@ -164,6 +163,18 @@ const navCategoryMenuItems = [
 function NavListMenu({ closeNav }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const { theme } = useDarkTheme();
+  const textColor = theme === "light" ? "text-black" : "text-white";
+  const descriptionColor =
+    theme === "light" ? "text-gray-700" : "text-gray-300";
+
+  const navigate = useNavigate();
+
+  const handleMenuClick = () => {
+    navigate("/allevents");
+    closeNav();
+  };
+
   const renderItems = navCategoryMenuItems.map(
     ({ icon, title, description, link }, key) => (
       <Link to={link} key={key} onClick={closeNav}>
@@ -171,20 +182,19 @@ function NavListMenu({ closeNav }) {
           <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2">
             {React.createElement(icon, {
               strokeWidth: 2,
-              className: "h-5 text-gray-900 w-6",
+              className: `h-5 ${textColor} w-6`,
             })}
           </div>
           <div>
             <Typography
               variant="h6"
-              color="blue-gray"
-              className="flex items-center text-sm font-bold"
+              className={`flex items-center text-sm font-bold ${textColor}`}
             >
               {title}
             </Typography>
             <Typography
               variant="paragraph"
-              className="text-xs !font-medium text-blue-gray-500"
+              className={`text-xs !font-medium ${descriptionColor}`}
             >
               {description}
             </Typography>
@@ -204,29 +214,27 @@ function NavListMenu({ closeNav }) {
         allowHover={true}
       >
         <MenuHandler>
-          <Link to={"/allevents"}>
-            <Typography as="div" variant="small" className="font-medium">
-              <ListItem
-                className="flex items-center gap-2 py-2 pr-3 font-medium text-gray-900 text-lg"
-                selected={isMenuOpen || isMobileMenuOpen}
-                onClick={() => setIsMobileMenuOpen((cur) => !cur)}
-              >
-                All events
-                <ChevronDownIcon
-                  strokeWidth={2.5}
-                  className={`hidden h-3 w-3 transition-transform lg:block ${
-                    isMenuOpen ? "rotate-180" : ""
-                  }`}
-                />
-                <ChevronDownIcon
-                  strokeWidth={2.5}
-                  className={`block h-3 w-3 transition-transform lg:hidden ${
-                    isMobileMenuOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </ListItem>
-            </Typography>
-          </Link>
+          <Typography as="div" variant="small" className="font-medium">
+            <ListItem
+              className={`flex items-center gap-2 py-2 pr-3 font-medium text-lg ${textColor}`}
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={handleMenuClick}
+            >
+              All events
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`hidden h-3 w-3 transition-transform lg:block ${
+                  isMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`block h-3 w-3 transition-transform lg:hidden ${
+                  isMobileMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+            </ListItem>
+          </Typography>
         </MenuHandler>
         <MenuList className="hidden max-w-screen-xl rounded-xl lg:block">
           <ul className="grid grid-cols-1 gap-y-2 outline-none outline-0">
@@ -234,9 +242,6 @@ function NavListMenu({ closeNav }) {
           </ul>
         </MenuList>
       </Menu>
-      <div className="block lg:hidden">
-        <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
-      </div>
     </React.Fragment>
   );
 }
@@ -244,6 +249,18 @@ function NavListMenu({ closeNav }) {
 function AllCities({ closeNav }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const { theme } = useDarkTheme();
+  const textColor = theme === "light" ? "text-black" : "text-white";
+  const descriptionColor =
+    theme === "light" ? "text-gray-700" : "text-gray-300";
+
+  const navigate = useNavigate();
+
+  const handleMenuClick = () => {
+    navigate("/allcities");
+    closeNav();
+  };
+
   const renderItems = navListMenuItems.map(
     ({ icon, title, description, link }, key) => (
       <Link to={link} key={key} onClick={closeNav}>
@@ -251,20 +268,19 @@ function AllCities({ closeNav }) {
           <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2">
             {React.createElement(icon, {
               strokeWidth: 2,
-              className: "h-5 text-gray-900 w-6",
+              className: `h-5 ${textColor} w-6`,
             })}
           </div>
           <div>
             <Typography
               variant="h6"
-              color="blue-gray"
-              className="flex items-center text-sm font-bold"
+              className={`flex items-center text-sm font-bold ${textColor}`}
             >
               {title}
             </Typography>
             <Typography
               variant="body2"
-              className="text-xs !font-medium text-blue-gray-500"
+              className={`text-xs !font-medium ${descriptionColor}`}
             >
               {description}
             </Typography>
@@ -284,29 +300,27 @@ function AllCities({ closeNav }) {
         allowHover={true}
       >
         <MenuHandler>
-          <Link to={"/allcities"}>
-            <Typography as="div" variant="small" className="font-medium">
-              <ListItem
-                className="flex items-center gap-2 py-2 pr-3 font-medium text-gray-900 text-lg"
-                selected={isMenuOpen || isMobileMenuOpen}
-                onClick={() => setIsMobileMenuOpen((cur) => !cur)}
-              >
-                All cities
-                <ChevronDownIcon
-                  strokeWidth={2.5}
-                  className={`hidden h-3 w-3 transition-transform lg:block ${
-                    isMenuOpen ? "rotate-180" : ""
-                  }`}
-                />
-                <ChevronDownIcon
-                  strokeWidth={2.5}
-                  className={`block h-3 w-3 transition-transform lg:hidden ${
-                    isMobileMenuOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </ListItem>
-            </Typography>
-          </Link>
+          <Typography as="div" variant="small" className="font-medium">
+            <ListItem
+              className={`flex items-center gap-2 py-2 pr-3 font-medium text-lg ${textColor}`}
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={handleMenuClick}
+            >
+              All cities
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`hidden h-3 w-3 transition-transform lg:block ${
+                  isMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`block h-3 w-3 transition-transform lg:hidden ${
+                  isMobileMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+            </ListItem>
+          </Typography>
         </MenuHandler>
         <MenuList className="hidden max-w-screen-xl rounded-xl lg:block">
           <ul className="grid grid-cols-1 gap-y-2 outline-none outline-0">
@@ -314,24 +328,23 @@ function AllCities({ closeNav }) {
           </ul>
         </MenuList>
       </Menu>
-      <div className="block lg:hidden">
-        <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
-      </div>
     </React.Fragment>
   );
 }
 
 function NavList({ closeNav }) {
+  const { theme } = useDarkTheme();
+  const textColor = theme === "light" ? "text-black" : "text-white";
+
   return (
     <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1 flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-2 w-full">
       <Typography
         as="a"
         href="#"
         variant="small"
-        color="blue-gray"
-        className="font-medium"
+        className={`font-medium ${textColor}`}
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-3 text-lg">
+        <ListItem className="flex items-center gap-2 py-2 pr-3 text-lg ">
           <Link to="/" onClick={closeNav}>
             Home
           </Link>
@@ -343,8 +356,7 @@ function NavList({ closeNav }) {
         as="a"
         href="#"
         variant="small"
-        color="blue-gray"
-        className="font-medium"
+        className={`font-medium ${textColor}`}
       >
         <ListItem className="flex items-center gap-2 py-2 pr-3 text-lg">
           <Link to="/contact" onClick={closeNav}>
@@ -356,8 +368,7 @@ function NavList({ closeNav }) {
         as="a"
         href="#"
         variant="small"
-        color="blue-gray"
-        className="font-medium"
+        className={`font-medium ${textColor}`}
       >
         <ListItem className="flex items-center gap-2 py-2 pr-3 text-lg">
           <Link to="/about" onClick={closeNav}>
@@ -366,22 +377,6 @@ function NavList({ closeNav }) {
         </ListItem>
       </Typography>
       <div className="relative flex items-center w-full lg:w-auto gap-2">
-        {/* <Input
-          type="search"
-          color="black"
-          label="Type here..."
-          className="pr-20"
-          containerProps={{
-            className: "min-w-[200px] w-full lg:w-auto",
-          }}
-        />
-        <Button
-          size="sm"
-          color="black"
-          className="!absolute right-1 top-1 rounded bg-[#f76b1b] w-[4.5rem]"
-        >
-          Search
-        </Button> */}
         <SearchComponent />
       </div>
     </List>
@@ -447,6 +442,8 @@ const customerMenuItems = [
 function ProfileMenu() {
   const { user, dispatch } = useAuthContext();
   const navigate = useNavigate();
+  const { theme } = useDarkTheme();
+  const textColor = theme === "light" ? "text-black" : "text-white";
 
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
@@ -470,9 +467,9 @@ function ProfileMenu() {
     <div className="flex items-center ">
       <div className="flex space-x-4 pr-2">
         <Link to="/cart">
-          <ShoppingCartIcon className="h-6 w-6 text-black" />
+          <ShoppingCartIcon className={`h-6 w-6 ${textColor}`} />
         </Link>
-        <BellIcon className="h-6 w-6 text-black" />
+        <BellIcon className={`h-6 w-6 ${textColor}`} />
       </div>
       <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
         <MenuHandler>
@@ -510,7 +507,9 @@ function ProfileMenu() {
                 }`}
               >
                 {React.createElement(icon, {
-                  className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
+                  className: `h-4 w-4 ${
+                    isLastItem ? "text-red-500" : textColor
+                  }`,
                   strokeWidth: 2,
                 })}
                 <Typography
@@ -548,9 +547,11 @@ export function NavbarWithMegaMenu() {
     <Navbar
       className={`${
         theme === "light" ? "bg-white text-black" : "bg-gray-800 text-white"
-      } sticky top-0 z-50 mx-auto max-w-full px-2 py-2 bg-white`}
+      } sticky top-0 z-50 mx-auto max-w-full px-2 py-1 ${
+        openNav ? "backdrop-blur-md" : ""
+      }`}
     >
-      <div className="flex items-center justify-between text-blue-gray-900">
+      <div className="flex items-center justify-between  container mx-auto">
         <Link to={"/"}>
           <img src={logo} alt="logo" className="h-12 md:h-14 lg:h-16" />
         </Link>

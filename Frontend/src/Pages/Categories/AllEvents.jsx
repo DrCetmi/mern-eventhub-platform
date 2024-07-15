@@ -170,12 +170,12 @@ const AllEvents = () => {
       </div>
 
       {/* Event-Liste */}
-      <div className="flex flex-wrap lg:grid md:grid-cols-5 justify-center container mx-auto">
+      <div className="flex flex-wrap lg:grid md:grid-cols-5 sm:grid-cols-1 gap-4 justify-center container mx-auto">
         {currentEvents.length > 0 ? (
           currentEvents.map((event) => (
             <div
               key={event._id}
-              className={`p-2 m-2  w-48 flex flex-col rounded-2xl shadow-lg hover:scale-105 transition-transform ${
+              className={`p-2 m-2  w-full sm:w-full md:w-48 flex flex-col rounded-2xl shadow-lg hover:scale-105 transition-transform ${
                 theme === "light" ? "bg-white" : "bg-gray-800"
               }`}
             >

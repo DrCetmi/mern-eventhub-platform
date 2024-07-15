@@ -45,44 +45,7 @@ const EditableRow = ({
           onChange={handleEditFormChange}
         />
       </td>
-      {/* 
-      <td>
-        <input
-          type="text"
-          name="description"
-          placeholder="Enter Description"
-          value={editFormData.description}
-          onChange={handleEditFormChange}
-        />
-      </td>
-      
-      <td>
-        <input
-          type="text"
-          name="location.state"
-          placeholder=" Enter state"
-          value={editFormData.location.state}
-          onChange={handleEditFormChange}
-        />
-      </td>
-      <td>
-        <input
-          type="text"
-          name="location.postalCode"
-          placeholder=" Enter postal code"
-          value={editFormData.location.postalCode}
-          onChange={handleEditFormChange}
-        />
-      </td>
-      <td>
-        <input
-          type="text"
-          name="location.country"
-          placeholder=" Enter country"
-          value={editFormData.location.country}
-          onChange={handleEditFormChange}
-        />
-      </td> */}
+
       <td>
         <input
           type="date"

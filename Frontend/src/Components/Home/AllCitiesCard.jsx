@@ -51,12 +51,6 @@ const cities = [
       "https://www.eventim.de/obj/media/DE-eventim/teaser/de/156x198/2023/staedteteaser-tickets-poster-leipzig.jpg",
     link: "/cities/leipzig",
   },
-  // {
-  //   name: "Bremen",
-  //   imgSrc:
-  //     "https://www.eventim.de/obj/media/DE-eventim/teaser/de/156x198/2023/staedteteaser-tickets-poster-bremen.jpg",
-  //   link: "/cities/bremen",
-  // },
 ];
 
 const AllCitiesCard = () => {
@@ -65,11 +59,11 @@ const AllCitiesCard = () => {
       <Outlet />
       <div className="flex flex-wrap justify-center lg:flex-nowrap overflow-x-auto mb-12 mx-1">
         {cities.map((city, index) => (
-          <Link to={city.link} key={index} className="p-2">
+          <Link to={city.link} key={index} className="p-1">
             <img
               src={city.imgSrc}
               alt={city.name}
-              className="h-[200px] hover:scale-105 transition-transform duration-500 ease-in-out transform hover:rotate-1"
+              className="h-[220px] hover:scale-105 transition-transform duration-500 ease-in-out transform hover:rotate-1"
             />
           </Link>
         ))}

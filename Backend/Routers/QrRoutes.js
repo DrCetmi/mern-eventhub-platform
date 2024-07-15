@@ -2,7 +2,7 @@
 
 const express = require("express");
 const router = express.Router();
-const Ticket = require("../model/Tickets");
+const Ticket = require("../Models/Tickets");
 
 // POST route to handle QR code scanning
 router.post("/", async (req, res) => {

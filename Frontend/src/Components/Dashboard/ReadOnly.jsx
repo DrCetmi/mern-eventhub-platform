@@ -15,32 +15,6 @@ const ReadOnly = ({ ticket, handleEditClick, handleDeleteClick }) => {
           {ticket.artist}
         </p>
       </td>
-      {/* 
-      <td className="p-4 border-b boder-blue-gray-50">
-        <p className="blo antialiased font-sane text-sm leading-normal text-blue-gray-900">
-          {" "}
-          {ticket.description}
-        </p>
-      </td>
-
-      <td className="p-4 border-b boder-blue-gray-50">
-        <p className="blo antialiased font-sane text-sm leading-normal text-blue-gray-900">
-          {" "}
-          {ticket.location.state}
-        </p>
-      </td>
-      <td className="p-4 border-b boder-blue-gray-50">
-        <p className="blo antialiased font-sane text-sm leading-normal text-blue-gray-900">
-          {" "}
-          {ticket.location.postalCode}
-        </p>
-      </td>
-      <td className="p-4 border-b boder-blue-gray-50">
-        <p className="blo antialiased font-sane text-sm leading-normal text-blue-gray-900">
-          {" "}
-          {ticket.location.country}
-        </p>
-      </td> */}
       <td className="p-4 border-b boder-blue-gray-50">
         <p className="blo antialiased font-sane text-sm leading-normal text-blue-gray-900">
           {" "}
@@ -104,11 +78,6 @@ const ReadOnly = ({ ticket, handleEditClick, handleDeleteClick }) => {
           {ticket.image}
         </p>
       </td>
-      {/* <td className="p-4 border-b boder-blue-gray-50">
-        <p className="blo antialiased font-sane text-sm leading-normal text-blue-gray-900">
-          {ticket.qrCode}
-        </p>
-      </td> */}
 
       <td className="p-4 border-b boder-blue-gray-50">
         <p className="blo antialiased font-sane text-sm leading-normal text-blue-gray-900">

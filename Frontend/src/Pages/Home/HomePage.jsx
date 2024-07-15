@@ -14,10 +14,13 @@ import Help from "../../Components/Home/Help";
 import SportSwiper from "../../Components/Home/SportSwiper";
 import ShowSwiper from "../../Components/Home/ShowSwiper";
 import { useDarkTheme } from "../../Context/ThemeContext";
+import PopupModal from "../../Components/Home/Popup"; // Importing PopupModal component
 // import ScrollToTop from "../../hooks/ScrollToTop";
 
 const HomePage = () => {
   const [backgroundColor, setBackgroundColor] = useState("white");
+  const [openModal, setOpenModal] = useState(false); // State for modal visibility
+
   // <ScrollToTop />;
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -28,11 +31,17 @@ const HomePage = () => {
     if (savedColor) {
       setBackgroundColor(savedColor);
     }
+
+    setOpenModal(true); // Open modal on component mount
   }, []);
 
   const handleSetBackgroundColor = (color) => {
     setBackgroundColor(color);
     localStorage.setItem("backgroundColor", color);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
   };
 
   const { theme } = useDarkTheme();
@@ -44,6 +53,8 @@ const HomePage = () => {
       }`}
       style={{ backgroundColor: backgroundColor }}
     >
+      <PopupModal open={openModal} handleClose={handleCloseModal} />{" "}
+      {/* Adding PopupModal */}
       <Settings setBackgroundColor={handleSetBackgroundColor} />
       <div className="relative z-10">
         <SwiperMain />
