@@ -13,7 +13,10 @@ const orderRoutes = require("./Routers/orderRoutes");
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://mern-eventhub-platform.vercel.app",
+    ],
   })
 );
 
