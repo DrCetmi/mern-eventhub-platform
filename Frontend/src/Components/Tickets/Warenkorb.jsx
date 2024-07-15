@@ -118,7 +118,7 @@ const Warenkorb = () => {
         totalPrice,
         email,
         paymentMethod,
-        user_id: userId, // Corrected user_id usage
+        user_id: user.userId, // Add user_id to orderData
       };
 
       console.log("Order Data:", orderData); // Debugging output
