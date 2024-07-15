@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import UsersTable from "./Components/Dashboard/Table";
-import TicketTable from "./Pages/Dashboard/TicketTable";
+
 import Statistics from "./Pages/Dashboard/StatisticTable";
 import Profile from "./Pages/Dashboard/Profile";
 import EventsTableList from "./Pages/Dashboard/EventsTableList";
@@ -21,6 +21,12 @@ import EventCategory from "./Pages/Categories/EventCategory";
 import AllEvents from "./Pages/Categories/AllEvents";
 import AboutPage from "./Pages/About/AboutPage";
 import ContactPage from "./Pages/Contact/ContactPage";
+// import Ticket from "./Components/Tickets/Tickets";
+import TicketTable from "./Pages/Dashboard/TicketTable";
+import TicketSelectionPage from "./Components/Tickets/TicketSelectionPage";
+import Warenkorb from "./Components/Tickets/Warenkorb";
+import TicketSuccess from "./Components/Tickets/TicketSuccess";
+import Search from "./Components/Search/SearchResults";
 
 function App() {
   return (
@@ -34,8 +40,12 @@ function App() {
         <Route path="/allcities" element={<AllCities />} />
         <Route path="/categories/:category?" element={<EventCategory />} />
         <Route path="/allevents" element={<AllEvents />} />
+        <Route path="/select-ticket" element={<TicketSelectionPage />} />
+        <Route path="/success" element={<TicketSuccess />} />
+        <Route path="/cart" element={<Warenkorb />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/search" element={<Search />} />
       </Route>
       <Route
         path="/customer-dashboard"
@@ -65,5 +75,4 @@ function App() {
     </Routes>
   );
 }
-
 export default App;

@@ -38,13 +38,9 @@ export function SignUp() {
     });
 
     axios
-      .post(
-        "https://mern-eventhub-platform.onrender.com/dashboard/users",
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      )
+      .post(`${import.meta.env.VITE_BACKEND_URL}/dashboard/users`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
       .then(() => {
         toast.success("Registration successful!");
         setTimeout(() => {
@@ -64,7 +60,7 @@ export function SignUp() {
         <Link to={"/"}>
           <img src={logo} alt="logo" className="h-52 mx-auto" />
         </Link>
-        <Typography variant="h2" className="font-bold mb-4">
+        <Typography variant="h2" className="font-bold mb-4 ">
           Registrieren
         </Typography>
         <Typography
@@ -82,11 +78,7 @@ export function SignUp() {
             onSubmit={handleSubmit}
           >
             <div className="mb-1 flex flex-col gap-6">
-              <Typography
-                variant="small"
-                color="blue-gray"
-                className="-mb-3 font-medium"
-              >
+              <Typography variant="small" className="-mb-3 font-medium">
                 Name
               </Typography>
               <Input
@@ -99,11 +91,7 @@ export function SignUp() {
                   className: "before:content-none after:content-none",
                 }}
               />
-              <Typography
-                variant="small"
-                color="blue-gray"
-                className="-mb-3 font-medium"
-              >
+              <Typography variant="small" className="-mb-3 font-medium">
                 Email Address
               </Typography>
               <Input
@@ -117,11 +105,7 @@ export function SignUp() {
                   className: "before:content-none after:content-none",
                 }}
               />
-              <Typography
-                variant="small"
-                color="blue-gray"
-                className="-mb-3 font-medium"
-              >
+              <Typography variant="small" className="-mb-3 font-medium">
                 Password
               </Typography>
               <Input
@@ -140,13 +124,12 @@ export function SignUp() {
               label={
                 <Typography
                   variant="small"
-                  color="gray"
                   className="flex items-center justify-start font-medium"
                 >
                   Ich stimme zu&nbsp;
                   <a
                     href="#"
-                    className="font-normal text-black transition-colors hover:text-gray-900 underline"
+                    className="font-normal text-orange-900 transition-colors hover:text-gray-900 underline"
                   >
                     Geschäftsbedingungen
                   </a>
@@ -160,10 +143,10 @@ export function SignUp() {
           </form>
           <Typography
             variant="paragraph"
-            className="text-center text-blue-gray-500 font-medium mt-4"
+            className="text-center text-blue-orange-500 font-medium mt-4"
           >
             Sie haben bereits ein Konto?
-            <Link to="/login" className="text-gray-900 ml-1">
+            <Link to="/login" className="text-orange-900 ml-1">
               Sign in
             </Link>
           </Typography>

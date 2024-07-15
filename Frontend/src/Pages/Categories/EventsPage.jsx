@@ -19,7 +19,7 @@ const EventsPage = () => {
 
   useEffect(() => {
     axios
-      .get("https://mern-eventhub-platform.onrender.com/dashboard/event")
+      .get(`${import.meta.env.VITE_BACKEND_URL}/dashboard/event`)
       .then((response) => {
         setEvents(response.data);
       })
@@ -48,7 +48,7 @@ const EventsPage = () => {
       ticket.menge -= ticketQuantity;
       axios
         .put(
-          `https://mern-eventhub-platform.onrender.com/dashboard/event/${event._id}`,
+          `${import.meta.env.VITE_BACKEND_URL}/dashboard/event/${event._id}`,
           event
         )
         .then((response) => {

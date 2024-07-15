@@ -13,7 +13,7 @@ const cities = [
     name: "Düsseldorf",
     imgSrc:
       "https://www.eventim.de/obj/media/DE-eventim/teaser/de/156x198/2023/staedteteaser-tickets-poster-duesseldorf.jpg",
-    link: "/cities/duesseldorf",
+    link: "/cities/düsseldorf",
   },
   {
     name: "Frankfurt",
@@ -31,13 +31,13 @@ const cities = [
     name: "Köln",
     imgSrc:
       "https://www.eventim.de/obj/media/DE-eventim/teaser/de/156x198/2023/staedteteaser-tickets-poster-koeln.jpg",
-    link: "/cities/koeln",
+    link: "/cities/köln",
   },
   {
     name: "München",
     imgSrc:
       "https://www.eventim.de/obj/media/DE-eventim/teaser/de/156x198/2023/staedteteaser-tickets-poster-muenchen.jpg",
-    link: "/cities/muenchen",
+    link: "/cities/münchen",
   },
   {
     name: "Stuttgart",

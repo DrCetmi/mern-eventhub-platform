@@ -8,7 +8,7 @@ export default function MasonryGridGallery() {
     const fetchImages = async () => {
       try {
         const response = await axios.get(
-          "https://mern-eventhub-platform.onrender.com/dashboard/event"
+          `${import.meta.env.VITE_BACKEND_URL}/dashboard/event`
         );
         const imageUrls = response.data.map((event) => event.bild);
         setImages(imageUrls);
@@ -22,24 +22,24 @@ export default function MasonryGridGallery() {
 
   return (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-4 my-4 border-r-4 border-t-4 p-4 border-orange-300 ">
-      <div className="grid gap-4">
+      <div className="grid gap-4 ">
         <div>
           <img
-            className="h-[150px] w-[500px] rounded-lg object-cover object-center"
+            className="h-[150px] w-[500px] rounded-lg object-cover object-center hover:scale-105 transition-transform"
             src={images[0]}
             alt="gallery-photo"
           />
         </div>
         <div>
           <img
-            className="h-[400px] w-[500px] rounded-lg object-cover object-center "
+            className="h-[400px] w-[500px] rounded-lg object-cover object-center hover:scale-105 transition-transform "
             src={images[1]}
             alt="gallery-photo"
           />
         </div>
         <div>
           <img
-            className="h-[200px] w-[500px] rounded-lg object-cover object-center"
+            className="h-[200px] w-[500px] rounded-lg object-cover object-center hover:scale-105 transition-transform"
             src={images[2]}
             alt="gallery-photo"
           />
@@ -48,21 +48,21 @@ export default function MasonryGridGallery() {
       <div className="grid gap-4">
         <div>
           <img
-            className="h-[300px] max-w-full rounded-lg object-cover object-center"
+            className="h-[300px] max-w-full rounded-lg object-cover object-center hover:scale-105 transition-transform"
             src={images[3]}
             alt="gallery-photo"
           />
         </div>
         <div>
           <img
-            className="h-[150px] w-[500px] rounded-lg object-cover object-center"
+            className="h-[150px] w-[500px] rounded-lg object-cover object-center hover:scale-105 transition-transform"
             src={images[4]}
             alt="gallery-photo"
           />
         </div>
         <div>
           <img
-            className="h-[300px] w-[500px] rounded-lg object-cover object-center "
+            className="h-[300px] w-[500px] rounded-lg object-cover object-center hover:scale-105 transition-transform "
             src={images[5]}
             alt="gallery-photo"
           />
@@ -71,21 +71,21 @@ export default function MasonryGridGallery() {
       <div className="grid gap-4">
         <div>
           <img
-            className="h-[180px] w-[500px] rounded-lg object-cover object-center"
+            className="h-[180px] w-[500px] rounded-lg object-cover object-center hover:scale-105 transition-transform"
             src={images[6]}
             alt="gallery-photo"
           />
         </div>
         <div>
           <img
-            className="h-[390px] w-[500px] rounded-lg object-cover object-center "
+            className="h-[390px] w-[500px] rounded-lg object-cover object-center hover:scale-105 transition-transform"
             src={images[7]}
             alt="gallery-photo"
           />
         </div>
         <div>
           <img
-            className="h-[190px] w-[500px] rounded-lg object-cover object-center"
+            className="h-[190px] w-[500px] rounded-lg object-cover object-center hover:scale-105 transition-transform"
             src={images[8]}
             alt="gallery-photo"
           />
@@ -94,14 +94,14 @@ export default function MasonryGridGallery() {
       <div className="grid gap-4">
         <div>
           <img
-            className="h-[390px] w-[500px] rounded-lg object-cover object-center "
+            className="h-[390px] w-[500px] rounded-lg object-cover object-center hover:scale-105 transition-transform"
             src={images[9]}
             alt="gallery-photo"
           />
         </div>
         <div>
           <img
-            className="h-[380px] w-[500px] rounded-lg object-cover object-center "
+            className="h-[380px] w-[500px] rounded-lg object-cover object-center hover:scale-105 transition-transform"
             src={images[10]}
             alt="gallery-photo"
           />

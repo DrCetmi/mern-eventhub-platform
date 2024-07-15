@@ -50,7 +50,7 @@ const Statistics = () => {
     const fetchData = async () => {
       try {
         const usersResponse = await axios.get(
-          "https://mern-eventhub-platform.onrender.com/dashboard/users"
+          `${import.meta.env.VITE_BACKEND_URL}/dashboard/users`
         );
         const usersCount = usersResponse.data.length + 900;
 
@@ -88,8 +88,8 @@ const Statistics = () => {
       {
         label: "X",
         data: [stats.users, stats.events, stats.revenue],
-        backgroundColor: ["#040414", "#000086", "#10B981"],
-        borderColor: ["#040414", "#000086", "#10B981"],
+        backgroundColor: ["#040414", "#000086", "	#ffa500"],
+        borderColor: ["#040414", "#000086", "	#ffa500"],
         borderWidth: 1,
       },
     ],

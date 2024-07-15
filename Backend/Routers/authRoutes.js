@@ -25,11 +25,13 @@ router.post("/login", async (req, res) => {
     });
 
     res.status(200).json({
+      userId: user._id,
       email,
       token,
       profilePicture: user.profilePicture,
       name: user.name,
       role: user.role,
+      id: user.user_id,
     });
   } catch (error) {
     res.status(500).json({ error: error.message });

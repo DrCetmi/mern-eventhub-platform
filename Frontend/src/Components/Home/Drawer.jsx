@@ -9,16 +9,17 @@ import {
   Option,
   Switch,
 } from "@material-tailwind/react";
+import { useDarkTheme } from "../../Context/ThemeContext";
 
 export default function DrawerDefault({ setBackgroundColor }) {
   const [open, setOpen] = React.useState(false);
+  const { theme, toggleTheme } = useDarkTheme();
 
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
 
   const sidenavColors = {
     white: "#ffffff",
-
     blue: "#3B82F6",
     teal: "#14B8A6",
     purple: "#8B5CF6",
@@ -27,6 +28,17 @@ export default function DrawerDefault({ setBackgroundColor }) {
     orange: "#FB923C",
     red: "#F87171",
     pink: "#F472B6",
+    black: "#212121",
+  };
+
+  const handleThemeToggle = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    toggleTheme();
+    if (newTheme === "dark") {
+      setBackgroundColor(sidenavColors.black);
+    } else {
+      setBackgroundColor(sidenavColors.white);
+    }
   };
 
   return (
@@ -76,8 +88,9 @@ export default function DrawerDefault({ setBackgroundColor }) {
               Change the color mode of the website
             </Typography>
             <div className="mt-3 flex items-center gap-2">
-              <Button variant="outlined">Dark</Button>
-              <Button variant="outlined">White</Button>
+              <Button variant="outlined" onClick={handleThemeToggle}>
+                {theme === "light" ? "Dark" : "Light"}
+              </Button>
             </div>
           </div>
           <div className="mb-12 ">

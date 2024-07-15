@@ -12,14 +12,16 @@ import "swiper/css/autoplay";
 // import required modules
 import { Grid, Pagination, Autoplay } from "swiper/modules";
 import { Card } from "@material-tailwind/react";
+import { useDarkTheme } from "../../../Context/ThemeContext";
 
 const SwiperMain = () => {
   const [events, setEvents] = useState([]);
   const navigate = useNavigate();
+  const { theme } = useDarkTheme();
 
   useEffect(() => {
     axios
-      .get("https://mern-eventhub-platform.onrender.com/dashboard/event")
+      .get(`${import.meta.env.VITE_BACKEND_URL}/dashboard/event`)
       .then((response) => {
         setEvents(response.data.slice(0, 36));
       })
@@ -44,7 +46,7 @@ const SwiperMain = () => {
 
   return (
     <>
-      <div className="block md:hidden ">
+      <div className="block md:hidden">
         <Swiper
           slidesPerView={1}
           grid={{
@@ -89,7 +91,7 @@ const SwiperMain = () => {
         </Swiper>
       </div>
 
-      <div className="hidden md:block ">
+      <div className="hidden md:block">
         <Swiper
           slidesPerView={1}
           grid={{
@@ -116,7 +118,9 @@ const SwiperMain = () => {
                 {eventGroup.map((event) => (
                   <Card
                     key={event._id}
-                    className="w-full cursor-pointer"
+                    className={`w-full cursor-pointer ${
+                      theme === "light" ? "bg-white" : "bg-gray-700"
+                    }`}
                     onClick={() => handleCardClick(event._id)}
                   >
                     <div className="relative h-[250px] p-0.5">

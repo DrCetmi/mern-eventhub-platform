@@ -61,9 +61,8 @@ export function FooterWithSitemap() {
             variant="small"
             className="mb-4 text-center font-normal text-white md:mb-0"
           >
-            &copy; {currentYear} <Link to="/">Eventhub</Link>. This is a project
-            and not a real website. All content is for demonstration purposes
-            only.
+            &copy; {currentYear} <Link to="/">Eventhub</Link>. All Rights
+            Reserved.
           </Typography>
           <div className="flex gap-4 text-white sm:justify-center">
             <Typography

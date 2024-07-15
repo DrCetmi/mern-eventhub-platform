@@ -7,7 +7,7 @@ export default function EventList() {
 
   useEffect(() => {
     axios
-      .get("https://mern-eventhub-platform.onrender.com/dashboard/event")
+      .get(`${import.meta.env.VITE_BACKEND_URL}/dashboard/event`)
       .then((response) => {
         setEvents(response.data);
       })
@@ -22,11 +22,11 @@ export default function EventList() {
         EVENTHUB Charts
       </Typography>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4 ">
           {events.slice(0, 10).map((event, index) => (
             <div
               key={event._id}
-              className="relative rounded-lg overflow-hidden shadow-lg"
+              className="relative rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform"
             >
               <img
                 src={event.bild}
@@ -51,7 +51,7 @@ export default function EventList() {
           ))}
         </div>
         {events[0] && (
-          <div className="relative rounded-lg overflow-hidden shadow-lg">
+          <div className="relative rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform">
             <img
               src={events[0].bild}
               alt={events[0].titel}

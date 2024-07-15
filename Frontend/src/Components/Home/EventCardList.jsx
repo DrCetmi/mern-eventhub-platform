@@ -14,7 +14,7 @@ const EventCardList = () => {
 
   useEffect(() => {
     axios
-      .get("https://mern-eventhub-platform.onrender.com/dashboard/event")
+      .get(`${import.meta.env.VITE_BACKEND_URL}/dashboard/event`)
       .then((response) => {
         const selectedEvents = response.data.slice(0, 6);
         setEvents(selectedEvents);

@@ -7,6 +7,7 @@ import axios from "axios";
 import logo from "../../assets/img/eventhub-logo.png";
 import login from "../../assets/img/login.jpg";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { useDarkTheme } from "../../Context/ThemeContext";
 
 export function Login() {
   const [credentials, setCredentials] = useState({
@@ -14,6 +15,7 @@ export function Login() {
     password: "",
     role: "" || "customer",
     ProfilePicture: null,
+    id: "",
   });
 
   const { dispatch } = useAuthContext();
@@ -33,12 +35,10 @@ export function Login() {
     }
 
     axios
-      .post(
-        "https://mern-eventhub-platform.onrender.com/auth/login",
-        credentials
-      )
+      .post(`${import.meta.env.VITE_BACKEND_URL}/auth/login`, credentials)
       .then((res) => {
         toast.success("Login successful!");
+        console.log(res.data);
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("user", JSON.stringify(res.data));
         dispatch({ type: "LOGIN", payload: res.data });
@@ -56,6 +56,7 @@ export function Login() {
         console.log(err);
       });
   };
+  const { theme } = useDarkTheme();
 
   return (
     <section className="m-2 flex flex-col items-center">
@@ -69,8 +70,7 @@ export function Login() {
         </Typography>
         <Typography
           variant="paragraph"
-          color="blue-gray"
-          className="text-lg font-normal"
+          className={`text-lg font-normal theme === "light" ? "text-black" : "text-white"`}
         >
           Sign in to access all the features.
         </Typography>
@@ -88,11 +88,7 @@ export function Login() {
             onSubmit={handleSubmit}
           >
             <div className="mb-1 flex flex-col gap-6">
-              <Typography
-                variant="small"
-                color="blue-gray"
-                className="-mb-3 font-medium"
-              >
+              <Typography variant="small" className="-mb-3 font-medium">
                 Email Address
               </Typography>
               <Input
@@ -106,11 +102,7 @@ export function Login() {
                   className: "before:content-none after:content-none",
                 }}
               />
-              <Typography
-                variant="small"
-                color="blue-gray"
-                className="-mb-3 font-medium"
-              >
+              <Typography variant="small" className="-mb-3 font-medium">
                 Password
               </Typography>
               <Input
@@ -131,10 +123,10 @@ export function Login() {
           </form>
           <Typography
             variant="paragraph"
-            className="text-center text-blue-gray-500 font-medium mt-4"
+            className="text-center  font-medium mt-4"
           >
             Don't have an account yet?{" "}
-            <Link to="/sign-up" className="text-gray-900 ml-1">
+            <Link to="/sign-up" className="text-orange-900 ml-1">
               Sign Up
             </Link>
           </Typography>

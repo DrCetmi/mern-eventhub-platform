@@ -44,6 +44,8 @@ import { MdSportsKabaddi } from "react-icons/md";
 import logo from "../../assets/img/eventhub-logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext.jsx";
+import SearchComponent from "../Search/SearchComponent.jsx";
+import { useDarkTheme } from "../../Context/ThemeContext.jsx";
 
 const navListMenuItems = [
   {
@@ -112,57 +114,57 @@ const navCategoryMenuItems = [
     title: "Comedy",
     description: "Lachen Sie sich schlapp bei den besten Comedians",
     icon: MdOutlineTheaterComedy,
-    link: "/categories/comedy",
+    link: "/categories/Comedy",
   },
   {
     title: "Musical",
     description: " Erleben Sie die besten Musicals live",
     icon: IoIosMusicalNotes,
-    link: "/categories/musical",
+    link: "/categories/Musical",
   },
   {
     title: "Show",
     description: " Erleben Sie die besten Shows live",
     icon: RiSlideshow2Line,
-    link: "/categories/show",
+    link: "/categories/Show",
   },
   {
     title: "Theater",
     description: " Genießen Sie die besten Theaterstücke live",
     icon: MdOutlineTheaterComedy,
-    link: "/categories/theater",
+    link: "/categories/Theater",
   },
   {
     title: "Konzert",
     description:
       " Tauchen Sie ein in die Welt der Musik und erleben Sie die besten Konzerte live",
     icon: BiSolidParty,
-    link: "/categories/konzert",
+    link: "/categories/Konzert",
   },
   {
     title: "Sport",
     description: " Erleben Sie die besten Sportevents live",
     icon: MdOutlineSportsSoccer,
-    link: "/categories/sport",
+    link: "/categories/Sport",
   },
   {
     title: "Kultur",
     description: " Erleben Sie die besten Kulturveranstaltungen live",
     icon: FaReact,
-    link: "/categories/kultur",
+    link: "/categories/Kultur",
   },
   {
     title: "Boxen & Wrestling ",
     description: " Erleben Sie die besten Box- und Wrestlingevents live",
     icon: MdSportsKabaddi,
-    link: "/categories/boxen-wrestling",
+    link: "/categories/Boxen & Wrestling",
   },
 ];
 
 function NavListMenu({ closeNav }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-  const renderItems = navListMenuItems.map(
+  const renderItems = navCategoryMenuItems.map(
     ({ icon, title, description, link }, key) => (
       <Link to={link} key={key} onClick={closeNav}>
         <MenuItem className="flex items-center gap-3 rounded-lg">
@@ -364,7 +366,7 @@ function NavList({ closeNav }) {
         </ListItem>
       </Typography>
       <div className="relative flex items-center w-full lg:w-auto gap-2">
-        <Input
+        {/* <Input
           type="search"
           color="black"
           label="Type here..."
@@ -379,7 +381,8 @@ function NavList({ closeNav }) {
           className="!absolute right-1 top-1 rounded bg-[#f76b1b] w-[4.5rem]"
         >
           Search
-        </Button>
+        </Button> */}
+        <SearchComponent />
       </div>
     </List>
   );
@@ -413,7 +416,34 @@ const profileMenuItems = [
     to: "/login",
   },
 ];
-
+const customerMenuItems = [
+  {
+    label: "Home",
+    icon: HomeIcon,
+    to: "/",
+  },
+  {
+    label: "My Tickets",
+    icon: UserCircleIcon,
+    to: "/customer-dashboard?tab=app",
+  },
+  {
+    label: "Edit Profile",
+    icon: UserCircleIcon,
+    to: "/customer-dashboard?tab=settings",
+  },
+  {
+    label: "Inbox",
+    icon: InboxArrowDownIcon,
+    to: "/customer-dashboard?tab=message",
+  },
+  {
+    label: "Sign Out",
+    icon: PowerIcon,
+    action: "logout",
+    to: "/login",
+  },
+];
 function ProfileMenu() {
   const { user, dispatch } = useAuthContext();
   const navigate = useNavigate();
@@ -433,10 +463,15 @@ function ProfileMenu() {
     closeMenu();
   };
 
+  const menuItems =
+    user && user.role === "admin" ? profileMenuItems : customerMenuItems;
+
   return (
     <div className="flex items-center ">
       <div className="flex space-x-4 pr-2">
-        <ShoppingCartIcon className="h-6 w-6 text-black" />
+        <Link to="/cart">
+          <ShoppingCartIcon className="h-6 w-6 text-black" />
+        </Link>
         <BellIcon className="h-6 w-6 text-black" />
       </div>
       <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
@@ -462,8 +497,8 @@ function ProfileMenu() {
           </Button>
         </MenuHandler>
         <MenuList className="p-1">
-          {profileMenuItems.map(({ label, icon, to, action }, key) => {
-            const isLastItem = key === profileMenuItems.length - 1;
+          {menuItems.map(({ label, icon, to, action }, key) => {
+            const isLastItem = key === menuItems.length - 1;
             return (
               <MenuItem
                 key={label}
@@ -498,6 +533,7 @@ function ProfileMenu() {
 export function NavbarWithMegaMenu() {
   const [openNav, setOpenNav] = React.useState(false);
   const { user } = useAuthContext();
+  const { theme } = useDarkTheme();
 
   const closeNav = () => setOpenNav(false);
 
@@ -509,7 +545,11 @@ export function NavbarWithMegaMenu() {
   }, []);
 
   return (
-    <Navbar className="sticky top-0 z-50 mx-auto max-w-full px-2 py-2 bg-white">
+    <Navbar
+      className={`${
+        theme === "light" ? "bg-white text-black" : "bg-gray-800 text-white"
+      } sticky top-0 z-50 mx-auto max-w-full px-2 py-2 bg-white`}
+    >
       <div className="flex items-center justify-between text-blue-gray-900">
         <Link to={"/"}>
           <img src={logo} alt="logo" className="h-12 md:h-14 lg:h-16" />

@@ -91,7 +91,7 @@ const CarouselWithContent = () => {
                 color="white"
                 className="mb-4 opacity-80 text-sm md:text-base lg:text-lg"
               >
-                Die coolsten Events in {city.name} bieten unvergessliche
+                Die besten Events in {city.name} bieten unvergessliche
                 Erlebnisse und Kultur.
               </Typography>
               <div className="flex justify-center gap-2">

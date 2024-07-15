@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../index.css";
+import { useDarkTheme } from "../../Context/ThemeContext";
 
 const AllEvents = () => {
   const [events, setEvents] = useState([]);
@@ -11,10 +12,14 @@ const AllEvents = () => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const eventsPerPage = 10; // Anzahl der Events pro Seite
+  const { theme } = useDarkTheme();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     axios
-      .get("https://mern-eventhub-platform.onrender.com/dashboard/event")
+      .get(`${import.meta.env.VITE_BACKEND_URL}/dashboard/event`)
       .then((response) => {
         setEvents(response.data);
       })
@@ -85,13 +90,21 @@ const AllEvents = () => {
   }
 
   return (
-    <div className="flex flex-col bg-gray-100">
+    <div
+      className={`flex flex-col ${
+        theme === "light" ? "bg-gray-100" : "bg-gray-900"
+      }`}
+    >
       {/* Filter Dropdown */}
       <div className="flex flex-wrap justify-center my-4">
         <select
           value={selectedCategory}
           onChange={(e) => handleCategoryChange(e.target.value)}
-          className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block p-2.5 mx-2 mb-2 sm:w-auto"
+          className={`border text-sm rounded-lg block p-2.5 mx-2 mb-2 sm:w-auto ${
+            theme === "light"
+              ? "bg-white border-gray-300 text-gray-900 focus:ring-orange-500 focus:border-orange-500"
+              : "bg-gray-700 border-gray-600 text-white focus:ring-orange-500 focus:border-orange-500"
+          }`}
         >
           <option value="Alle">Alle Kategorien</option>
           <option value="Comedy">Comedy</option>
@@ -107,7 +120,11 @@ const AllEvents = () => {
         <select
           value={selectedCity}
           onChange={(e) => handleCityChange(e.target.value)}
-          className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block p-2.5 mx-2 mb-2 sm:w-auto"
+          className={`border text-sm rounded-lg block p-2.5 mx-2 mb-2 sm:w-auto ${
+            theme === "light"
+              ? "bg-white border-gray-300 text-gray-900 focus:ring-orange-500 focus:border-orange-500"
+              : "bg-gray-700 border-gray-600 text-white focus:ring-orange-500 focus:border-orange-500"
+          }`}
         >
           <option value="Alle">Alle Städte</option>
           {/* Beispielstädte, diese können durch echte Daten ersetzt werden */}
@@ -126,14 +143,22 @@ const AllEvents = () => {
           type="date"
           value={startDate}
           onChange={(e) => handleStartDateChange(e.target.value)}
-          className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block p-2.5 mx-2 mb-2 sm:w-auto"
+          className={`border text-sm rounded-lg block p-2.5 mx-2 mb-2 sm:w-auto ${
+            theme === "light"
+              ? "bg-white border-gray-300 text-gray-900 focus:ring-orange-500 focus:border-orange-500"
+              : "bg-gray-700 border-gray-600 text-white focus:ring-orange-500 focus:border-orange-500"
+          }`}
         />
 
         <input
           type="date"
           value={endDate}
           onChange={(e) => handleEndDateChange(e.target.value)}
-          className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block p-2.5 mx-2 mb-2 sm:w-auto"
+          className={`border text-sm rounded-lg block p-2.5 mx-2 mb-2 sm:w-auto ${
+            theme === "light"
+              ? "bg-white border-gray-300 text-gray-900 focus:ring-orange-500 focus:border-orange-500"
+              : "bg-gray-700 border-gray-600 text-white focus:ring-orange-500 focus:border-orange-500"
+          }`}
         />
 
         <button
@@ -150,22 +175,27 @@ const AllEvents = () => {
           currentEvents.map((event) => (
             <div
               key={event._id}
-              className="p-2 m-2 border-orange-700 border-2 w-48 flex flex-col rounded-2xl bg-white shadow-lg"
-              style={{ height: "300px" }} // Feste Höhe
+              className={`p-2 m-2  w-48 flex flex-col rounded-2xl shadow-lg hover:scale-105 transition-transform ${
+                theme === "light" ? "bg-white" : "bg-gray-800"
+              }`}
             >
               <img
-                className="w-full h-32 object-cover object-top"
+                className="p-1 rounded-lg w-full h-32 object-cover object-top hover:scale-105 transition-transform"
                 src={event.bild}
                 alt={event.titel}
-                style={{ height: "100px" }} // Feste Höhe für das Bild
+                style={{ height: "180px" }} // Feste Höhe für das Bild
               />
               <div className="p-2 flex flex-col flex-1">
-                <h2 className="text-lg font-bold">{event.titel}</h2>
-                <p className="mt-1 text-md">
-                  Ticketpreis ab: {event.ticketPreis}€
-                </p>
+                <h2
+                  className={`text-lg font-bold ${
+                    theme === "light" ? "text-black" : "text-white"
+                  }`}
+                >
+                  {event.titel}
+                </h2>
+
                 <div className="flex-grow"></div>
-                <div className="flex justify-center mt-2">
+                <div className="flex justify-center">
                   <Link to={`/events/${event._id}`}>
                     <button className="bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600">
                       Zu den Tickets
@@ -176,7 +206,9 @@ const AllEvents = () => {
             </div>
           ))
         ) : (
-          <p>Keine Events gefunden.</p>
+          <p className={`${theme === "light" ? "text-black" : "text-white"}`}>
+            Keine Events gefunden.
+          </p>
         )}
       </div>
       {/* Seitennummerierung */}
@@ -190,7 +222,9 @@ const AllEvents = () => {
                 className={`py-2 px-4 rounded ${
                   number === currentPage
                     ? "bg-orange-500 text-white"
-                    : "bg-gray-300 text-gray-700 hover:bg-gray-400"
+                    : theme === "light"
+                    ? "bg-gray-300 text-gray-700 hover:bg-gray-400"
+                    : "bg-gray-600 text-white hover:bg-gray-500"
                 }`}
               >
                 {number}

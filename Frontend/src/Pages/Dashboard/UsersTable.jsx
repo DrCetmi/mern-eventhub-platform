@@ -51,7 +51,7 @@ export function SortableTable() {
 
   useEffect(() => {
     axios
-      .get("https://mern-eventhub-platform.onrender.com/dashboard/Users")
+      .get(`${import.meta.env.VITE_BACKEND_URL}/dashboard/Users`)
       .then((res) => {
         setUsers(res.data);
       })
@@ -121,7 +121,9 @@ export function SortableTable() {
 
       axios
         .put(
-          `https://mern-eventhub-platform.onrender.com/dashboard/users/${currentUser._id}`,
+          `${import.meta.env.VITE_BACKEND_URL}/dashboard/users/${
+            currentUser._id
+          }`,
           formData,
           {
             headers: { "Content-Type": "multipart/form-data" },
@@ -159,13 +161,9 @@ export function SortableTable() {
       });
 
       axios
-        .post(
-          "https://mern-eventhub-platform.onrender.com/dashboard/users",
-          formData,
-          {
-            headers: { "Content-Type": "multipart/form-data" },
-          }
-        )
+        .post(`${import.meta.env.VITE_BACKEND_URL}/dashboard/users`, formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        })
         .then((res) => {
           setUsers([...users, res.data]);
           toast.success("User added successfully");
@@ -187,9 +185,7 @@ export function SortableTable() {
 
   const handleDelete = (userId) => {
     axios
-      .delete(
-        `https://mern-eventhub-platform.onrender.com/dashboard/users/${userId}`
-      )
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/dashboard/users/${userId}`)
       .then((res) => {
         setUsers(users.filter((user) => user._id !== userId));
         toast.success("User deleted successfully");

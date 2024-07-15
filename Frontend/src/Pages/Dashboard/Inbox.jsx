@@ -17,7 +17,7 @@ const Inbox = () => {
 
   useEffect(() => {
     axios
-      .get("https://mern-eventhub-platform.onrender.com/dashboard/contact")
+      .get(`${import.meta.env.VITE_BACKEND_URL}/dashboard/contact`)
       .then((res) => {
         setTableRows(res.data.reverse());
       })
@@ -29,7 +29,7 @@ const Inbox = () => {
   const handleDelete = async (idToDelete) => {
     try {
       await axios.delete(
-        `https://mern-eventhub-platform.onrender.com/contact/${idToDelete}`
+        `${import.meta.env.VITE_BACKEND_URL}/dashboard/contact/${idToDelete}`
       );
       setTableRows((prevRows) =>
         prevRows.filter((row) => row._id !== idToDelete)
@@ -99,7 +99,7 @@ const Inbox = () => {
                           {_id}
                         </Typography>
                       </td>
-                      <td className={`${classes} w-52 border-2 border-white`}>
+                      <td className={`${classes} w-20 border-2 border-white`}>
                         <Typography
                           variant="small"
                           color="blue-gray"
@@ -108,7 +108,7 @@ const Inbox = () => {
                           {email}
                         </Typography>
                       </td>
-                      <td className={`${classes}  w-52 border-2 border-white`}>
+                      <td className={`${classes}  w-20 border-2 border-white`}>
                         <Typography
                           variant="small"
                           color="blue-gray"
@@ -117,7 +117,7 @@ const Inbox = () => {
                           {subject}
                         </Typography>
                       </td>
-                      <td className={`${classes} border-2 border-white w-96`}>
+                      <td className={`${classes} border-2 border-white w-40`}>
                         <Typography
                           variant="small"
                           color="blue-gray"

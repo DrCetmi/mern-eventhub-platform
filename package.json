@@ -9,9 +9,13 @@
     "@react-oauth/google": "^0.12.1",
     "bcrypt": "^5.1.1",
     "date-fns": "^3.6.0",
+    "emailjs-com": "^3.2.0",
     "lodash": "^4.17.21",
+    "qrcode": "^1.5.3",
+    "qrcode.react": "^3.1.0",
     "react-apexcharts": "^1.4.1",
-    "swiper": "^11.1.4"
+    "swiper": "^11.1.4",
+    "uuid": "^10.0.0"
   },
   "name": "eventim-clone",
   "description": "",
